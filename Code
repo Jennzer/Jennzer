@@ -1,0 +1,258 @@
+# Background
+# Wall
+wall = Rect(0,0,400,200, fill = 'coral')
+# Door
+door = Group(
+    Rect(240,80,80,120, fill = 'silver'),
+    Rect(255,60,50,17, fill = 'silver'),
+    Rect(240,125,10,30, fill = 'gray'),
+    Label("EXIT",280,69, fill = 'fireBrick', bold = True, size = 14)
+    )
+# Windows 
+windows = Rect(250,90,60,100, fill = gradient('powderBlue', 'paleTurquoise', start = "bottom"))
+# Floor
+floor = Rect(0,200,400,200, fill = 'gray')
+# Booth
+booth = Group(
+    Rect(12,163,15,50, fill = rgb(53,37,38)),
+    Rect(0,210,27,20, fill = rgb(53,37,38)),
+    Rect(0,200,10,10, fill = 'tomato'),
+    Polygon(3,200,12,163,12,210, fill = 'tomato')
+    )
+backgroundDecor = Group(door, windows, booth)
+
+# Decorations
+# Bakery Display Case
+displayCase = Group(
+    Oval(400,200,41,38, fill = 'dimGray'),
+    Rect(380,200,40,120, fill = 'silver'),
+    Oval(400,320,47.5,35, fill = 'dimGray'),
+    Rect(360,319,80,40, fill = 'gray')
+    )
+# Cookies
+cookies = Group(
+    Circle(395,215,10, fill = 'peru'),
+    Circle(394,210,2, fill = 'sienna'),
+    Circle(398,220,2, fill = 'sienna'),
+    Circle(389,217,2, fill = 'sienna'),
+    Circle(395,239,10, fill = 'peru'),
+    Circle(394,232,2, fill = 'snow'),
+    Circle(398,242,2, fill = 'snow'),
+    Circle(389,240,2, fill = 'snow')
+    )
+# Donuts
+donuts = Group(
+    Circle(395,264,10, fill = None, border = 'paleTurquoise', borderWidth = 13),
+    Circle(395,290,10, fill = None, border = 'hotPink', borderWidth = 13)
+    )
+# Poster
+poster = Group(
+    Rect(345,65,70,100, fill = gradient('cadetBlue', 'steelBlue', start = "left-top")),
+    Label("You are",385,100, size = 16, bold = True, fill = 'ghostWhite'),
+    Label("your home",395,126, size = 16, bold = True, fill = 'ghostWhite')
+    )
+decorations = Group(displayCase,cookies,donuts,poster)
+    
+# Cash Machine 
+cashMachine = Group(
+    Rect(250,220,80,80, fill = 'white'),
+    Line(290,300,290,320, fill = gradient('white', 'white', 'gainsboro', start = "bottom"), lineWidth = 15),
+    Label("Cash", 290, 238, font = 'montserrat', bold = True),
+    Label("Machine", 290, 253, font = 'montserrat', bold = True),
+    Rect(265,270,50,10, fill = 'silver')
+    )
+
+cashIn = Line(270,275,310,275)
+
+# Money
+money = Group(
+    Rect(330,340,35,45, fill = 'mediumSeaGreen'),
+    Rect(335,345,25,35, fill = 'lightGreen'),
+    Label("$", 348.5,362, fill = 'mediumSeaGreen', rotateAngle = 90, size = 20, bold = True)
+    )
+
+# Self-Ordering Kiosk
+selfOrderingKiosk = Group(
+    Rect(40,40,200,240, fill = 'white'),
+    Line(100,280,100,360, fill = gradient('white', 'white', 'gainsboro', start = "bottom"), lineWidth = 15),
+    Line(180,280,180,360, fill = gradient('white', 'white', 'gainsboro', start = "bottom"), lineWidth = 15),
+    Oval(140,40,200,55, fill = 'white')
+    )
+    
+# Screen
+screen = Group(
+    Rect(50,45,180,225, fill = 'lavender'),
+    Label("Welcome to",140,80, size = 23, bold = True),
+    Label("The Cafe!",140,115, size = 23, bold = True),
+    Label("Please choose a drink",140,145, bold = True, size = 13)
+    )
+
+# SummerBlast
+summerBlast = Group(
+    Rect(50,182,180,40, fill = 'paleGoldenrod'),
+    Rect(50,182,180,40, fill = None, border = 'white', borderWidth = 0.5),
+    Rect(109,168,65,70, fill = 'white'),
+    Rect(112,171,59,64.5, fill = 'paleGoldenrod'),
+    Label("SummerBlast",143,252.5, fill = 'goldenrod', bold = True, size = 14),
+    Rect(122,183,39,50, fill = 'azure'),
+    Rect(126,191,30,37, fill = gradient(rgb(220,71,48),rgb(243,104,69),rgb(252,133,90),'lightSalmon', start = "bottom")),
+    Circle(133,181,7, fill = gradient(rgb(250,193,37),rgb(249,222,86), start = "bottom")),
+    Circle(133,181,5, fill = None, border = rgb(249,222,86)),
+    Line(138,181,131,180, fill = rgb(249,222,86)),
+    )
+
+# Second Screen
+secondScreen = Group(
+    Rect(50,45,180,225, fill = 'lavender'),
+    Label("Please pay by",140,80, size = 18, bold = True),
+    Label("dragging cash into",140,110, size = 18, bold = True),
+    Label("the cash machine",140,140, bold = True, size = 18),
+    Rect(100,165,80,80, fill = 'white'),
+    Label("Cash", 140, 183, font = 'montserrat', bold = True),
+    Label("Machine", 140, 198, font = 'montserrat', bold = True),
+    Rect(116,216,50,10, fill = 'silver'),
+    Line(120,221,161,221),
+    Rect(122,221,35,45, fill = 'mediumSeaGreen'),
+    Rect(127,226,25,35, fill = 'lightGreen'),
+    Label("$",139.5,242.5, fill = 'mediumSeaGreen', rotateAngle = 90, size = 20, bold = True)
+    )
+secondScreen.visible = False
+
+# Third Screen 
+thirdScreenOne = Group(
+    Rect(50,45,180,225, fill = 'lavender'),
+    Label("You have ordered ",140,81, size = 19, bold = True),
+    Label("SummerBlast",140,109, fill = 'goldenrod', size = 19, bold = True),
+    Label("Thank you for ",140,138, bold = True, size = 19),
+    Label("ordering at",140,168, bold = True, size = 19),
+    Label("The Cafe!",140,198, bold = True, size = 19)
+    )
+thirdScreenOne.visible = False
+
+finishButton = Group(
+    Rect(90,230,98,28, fill = 'white'),
+    Label("Finish",140,243, bold = True, size = 14)
+    )
+finishButton.visible = False
+
+# Canvas 2 - This canvas will be seen when the player receives the chosen drink.
+# Wall 
+canvasTwoWall = Rect(0,200,400,60, fill = 'coral')
+
+# Window
+windowTwo = Group(
+    Rect(15,15,369,230, fill = gradient('powderBlue', 'paleTurquoise', start = "bottom")),
+    Rect(15,15,369,230, fill = None, border = 'silver', borderWidth = 3)
+    )
+    
+# City View
+cityBackground = Group(
+    Rect(18,220,363,22, fill = 'darkGray'),
+    Rect(18,140,363,80),
+    Rect(18,110,363,30, fill = 'darkGray'),
+    Rect(18,130,363,10, fill = 'gray'),
+    Line(18,220,381,220, fill = 'darkGray', lineWidth = 5),
+    Line(18,180,80,180, fill = 'white', lineWidth = 5),
+    Line(100,180,162,180, fill = 'white', lineWidth = 5),
+    Line(182,180,244,180, fill = 'white', lineWidth = 5),
+    Line(264,180, 326,180, fill = 'white', lineWidth = 5),
+    Line(346,180,381,180, fill = 'white', lineWidth = 5),
+    Rect(76,60,15,41, fill = rgb(145,107,78)),
+    Line(76,60,91,60, fill = rgb(53,37,38)),
+    Rect(286,18,95,38, fill = rgb(145,107,78))
+    )
+building = Group(
+    Rect(18,18,50,92, fill = rgb(87,95,132)),
+    Polygon(68,18,77,18,77,101,68,110, fill = rgb(117,135,174)),
+    Rect(30,32,25,25, fill = None, border = rgb(62,68,94), borderWidth = 2),
+    Rect(30,72,25,25, fill = None, border = rgb(62,68,94), borderWidth = 2),
+    Line(43,32,43,55, fill = rgb(62,68,94), lineWidth = 2),
+    Line(30,45,53,45, fill = rgb(62,68,94), lineWidth = 2),
+    Line(30,84,53,84, fill = rgb(62,68,94), lineWidth = 2),
+    Line(42,73,42,95, fill = rgb(62,68,94), lineWidth = 2)
+    )
+superMarket = Group(
+    Rect(90,18,180,92, fill = rgb(179,230,185)),
+    Polygon(68,110,77,101,90,101,90,110, fill = 'darkGray'),
+    Polygon(270,110,286,40,286,18,270,18, fill = rgb(197,237,202)),
+    Polygon(270,110,286,40,381,40,381,110, fill = 'darkGray'),
+    Polygon(295,110,303,55,381,55,381,110),
+    Rect(150,70,50,40, fill = 'whiteSmoke'),
+    Line(297,90,336,90, fill = 'white', lineWidth = 3),
+    Line(300,70,334,70, fill = 'white', lineWidth = 3),
+    Rect(157,78,35,32, fill = gradient('powderBlue', 'paleTurquoise', start = "bottom")),
+    Rect(119,31,115,25, fill = rgb(119,186,127)),
+    Label("Supermarket",175,43, size = 17, fill = 'white', bold = True),
+    Rect(90,31,29,24,  fill = 'whiteSmoke'),
+    Rect(234,32,36,24, fill = 'whiteSmoke'),
+    Polygon(270,32,286,18,286,25,270,56, fill = 'white'),
+    Rect(217,67,42,34, fill = 'lightYellow'),
+    Rect(98,67,39,34, fill = 'lightCyan'),
+    Label("Self -",117,78, size = 11, fill = 'royalBlue', bold = True),
+    Label("Serve",117,90, size = 11, fill = 'royalBlue', bold = True),
+    Label("Now",233.5,77, bold = True, fill = 'darkKhaki'),
+    Label("Open!",237,89, bold = True, fill = 'darkKhaki')
+    )
+
+# Table
+table = Group(
+    Polygon(0,400,0,260,400,260,360,400, fill = rgb(119, 136, 153)),
+    Polygon(360,400,400,260,400,400, fill = 'slateGray'),
+    Line(360,400,400,260, fill = 'slateGray')
+    )
+canvasTwo = Group(canvasTwoWall,windowTwo,cityBackground,building,superMarket,table)
+canvasTwo.visible = False
+
+# SummerBlast in canvas 2
+summerBlastReal = Group(
+    Rect(161.5,259,82,111, fill = 'azure'),
+    Circle(179,255,14, fill = gradient(rgb(250,193,37),rgb(249,222,86), start = "bottom")),
+    Circle(179,255,10, fill = None, border = rgb(249,222,86)),
+    Line(192,260,180,256, fill = rgb(249,222,86)),
+    Line(225,355,223,245, fill = rgb(220,71,48), lineWidth = 6),
+    Line(220,243,255,237, fill = rgb(220,71,48), lineWidth = 6),
+    Label("Click the",75,297, fill = 'white', size = 17, bold = True),
+    Label("screen to",76,317, fill = 'white', size = 17, bold = True),
+    Label("drink", 76,339, fill = 'white', size = 17, bold = True)
+    )
+sbLiquid = Rect(168,266,69,100, fill = gradient(rgb(220,71,48),rgb(243,104,69),rgb(252,133,90),'lightSalmon', start = "bottom"))
+summerBlastReal.visible = False
+sbLiquid.visible = False
+
+def onMousePress(mouseX, mouseY):
+    if (summerBlast.hits(mouseX, mouseY)):
+        screen.visible = False
+        summerBlast.visible = False
+        secondScreen.visible = True
+        thirdScreenOne.visible = True
+        secondScreen.toFront()
+
+    if (finishButton.hits(mouseX, mouseY)):
+        thirdScreenOne.visible = False
+        secondScreen.visble = False
+        finishButton.visible = False
+        backgroundDecor.visible = False
+        decorations.visible = False
+        cashMachine.visible = False
+        cashIn.visible = False
+        selfOrderingKiosk.visible = False
+        screen.visible = False
+        secondScreen.visible = False
+        canvasTwo.visible = True
+        summerBlastReal.visible = True
+        sbLiquid.visible = True
+        
+    if (summerBlastReal.visible == True):
+        if (sbLiquid.top != 356 and sbLiquid.height != 356):
+            sbLiquid.height -= 10
+            sbLiquid.top += 10
+       
+def onMouseDrag(mouseX, mouseY):
+    if (secondScreen.visible == True):
+        money.centerX = mouseX
+        money.centerY = mouseY
+    
+    if (money.hitsShape(cashIn) == True):
+        money.visible = False
+        secondScreen.visible = False
+        finishButton.visible = True
